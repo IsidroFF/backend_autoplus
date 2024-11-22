@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraphQL + Firebase OAuth Test</title>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+</head>
+
+<body>
+    <h1>GraphQL + Firebase OAuth Test</h1>
+
+    <button id="loginButton">Sign in with Google</button>
+    <button id="getUserDataButton" style="display:none;">Get User Data</button>
+
+    <pre id="response"></pre>
+
+    <script>
+        // TODO: Replace with your Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyCQo87Mb2mI7a5bB8oo1kME_lzJGS-KNFo",
+            authDomain: "coches-9522d.firebaseapp.com",
+            projectId: "coches-9522d",
+            storageBucket: "coches-9522d.appspot.com",
+            messagingSenderId: "379453750070",
+            appId: "1:379453750070:web:83a72fe529889d40bb5197"
+        };
+        /*  */
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+
+        // Handle sign-in with Google
+        document.getElementById('loginButton').addEventListener('click', () => {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider).then(async (result) => {
+                const token = await result.user.getIdToken();
+
+                // Hide login button and show data fetch button
+                document.getElementById('loginButton').style.display = 'none';
+                document.getElementById('getUserDataButton').style.display = 'block';
+
+                // Store token globally
+                window.userToken = token;
+            }).catch((error) => {
+                console.error("Authentication error:", error);
+            });
+        });
+
+        // Handle fetching user data
+        document.getElementById('getUserDataButton').addEventListener('click', () => {
+            fetch('localhost:4000/graphql', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${window.userToken}` // Send token in header
+                },
+                body: JSON.stringify({
+                    query: `{
+            user(userId: "exampleUserId") {
+              name
+              email
+              vehicles {
+                make
+                model
+                year
+              }
+            }
+          }`
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    console.error("GraphQL error:", error);
+                });
+        });
+    </script>
+</body>
+
+</html>

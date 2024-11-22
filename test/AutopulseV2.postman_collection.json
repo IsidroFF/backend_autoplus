@@ -1,0 +1,573 @@
+{
+	"info": {
+		"_postman_id": "64778d2d-2f29-4d56-b3e7-949181e0d2d7",
+		"name": "Autopulse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29492134"
+	},
+	"item": [
+		{
+			"name": "Autos",
+			"item": [
+				{
+					"name": "Agregar vehichulo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"make\": \"Mazda\",\n  \"model\": \"CX-5\",\n  \"year\": 2023,\n  \"vin\": \"JM1KFBDM7K0123456\",\n  \"licensePlate\": \"PQR-2345\",\n  \"mileage\": 5000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener autos del usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener un solo vehiculo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/9d8673a4-f50d-4665-af99-76a7fdab7121",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"9d8673a4-f50d-4665-af99-76a7fdab7121"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar vehiculo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"make\": \"Toyota\",\n  \"model\": \"Corolla\",\n  \"year\": 2020,\n  \"vin\": \"1HGCM82633A123456\",\n  \"licensePlate\": \"XYZ-7890\",\n  \"mileage\": 60000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/2a2838d9-8bf2-4371-8eae-4e6684abfcf9",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"2a2838d9-8bf2-4371-8eae-4e6684abfcf9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar auto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/9d8673a4-f50d-4665-af99-76a7fdab7121",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"9d8673a4-f50d-4665-af99-76a7fdab7121"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Modificaciones",
+			"item": [
+				{
+					"name": "Agregar modificaciones",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"modificationDate\": \"2024-07-30\",\n  \"modificationType\": \"Cambio de Batería\",\n  \"description\": \"Batería nueva instalada\",\n  \"cost\": 150,\n  \"mileageAtModification\": 22000,\n  \"performedBy\": \"Electromecánico García\",\n  \"notes\": \"Garantía de 1 año incluida\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/2a2838d9-8bf2-4371-8eae-4e6684abfcf9/vehicleModifications",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"2a2838d9-8bf2-4371-8eae-4e6684abfcf9",
+								"vehicleModifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener una modificación",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/2a2838d9-8bf2-4371-8eae-4e6684abfcf9/vehicleModifications/f9f56847-e1b1-4d98-9045-e872b9482470",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"2a2838d9-8bf2-4371-8eae-4e6684abfcf9",
+								"vehicleModifications",
+								"f9f56847-e1b1-4d98-9045-e872b9482470"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todas las modificaciones del vehiculo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/2a2838d9-8bf2-4371-8eae-4e6684abfcf9/vehicleModifications",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"2a2838d9-8bf2-4371-8eae-4e6684abfcf9",
+								"vehicleModifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar modificación",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"modificationDate\": \"2024-07-30\",\n  \"modificationType\": \"Cambio de Batería\",\n  \"description\": \"Batería nueva instalada\",\n  \"cost\": 150,\n  \"mileageAtModification\": 22000,\n  \"performedBy\": \"Electromecánico García\",\n  \"notes\": \"Garantía de 1 año incluida\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/2a2838d9-8bf2-4371-8eae-4e6684abfcf9/vehicleModifications/f9f56847-e1b1-4d98-9045-e872b9482470",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"2a2838d9-8bf2-4371-8eae-4e6684abfcf9",
+								"vehicleModifications",
+								"f9f56847-e1b1-4d98-9045-e872b9482470"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar modificación",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/2a2838d9-8bf2-4371-8eae-4e6684abfcf9/vehicleModifications/f9f56847-e1b1-4d98-9045-e872b9482470",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"2a2838d9-8bf2-4371-8eae-4e6684abfcf9",
+								"vehicleModifications",
+								"f9f56847-e1b1-4d98-9045-e872b9482470"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Servicio",
+			"item": [
+				{
+					"name": "Agregar servicio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"serviceId\": \"GENERATED_SERVICE_ID_2\",\n  \"serviceDate\": \"2024-09-10\",\n  \"serviceType\": \"Brake Replacement\",\n  \"mileageAtService\": 48000,\n  \"cost\": 200.00,\n  \"serviceCenter\": \"Brakes & More\",\n  \"notes\": \"Replaced front brake pads and inspected rotors\"\n}\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/2a2838d9-8bf2-4371-8eae-4e6684abfcf9/serviceHistory",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"2a2838d9-8bf2-4371-8eae-4e6684abfcf9",
+								"serviceHistory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todos los servicios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/2a2838d9-8bf2-4371-8eae-4e6684abfcf9/serviceHistory",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"2a2838d9-8bf2-4371-8eae-4e6684abfcf9",
+								"serviceHistory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener datos de un servicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/2a2838d9-8bf2-4371-8eae-4e6684abfcf9/serviceHistory/1d5dfa11-0814-456a-974e-a665ec1ae299",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"2a2838d9-8bf2-4371-8eae-4e6684abfcf9",
+								"serviceHistory",
+								"1d5dfa11-0814-456a-974e-a665ec1ae299"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar datos del servicio",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"serviceId\": \"GENERATED_SERVICE_ID_3\",\n  \"serviceDate\": \"2024-08-05\",\n  \"serviceType\": \"Battery Replacement-MODISIDRO\",\n  \"mileageAtService\": 47000,\n  \"cost\": 150.75,\n  \"serviceCenter\": \"AutoFix Center\",\n  \"notes\": \"Replaced old battery with a new one, tested electrical system\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/2a2838d9-8bf2-4371-8eae-4e6684abfcf9/serviceHistory/1d5dfa11-0814-456a-974e-a665ec1ae299",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"2a2838d9-8bf2-4371-8eae-4e6684abfcf9",
+								"serviceHistory",
+								"1d5dfa11-0814-456a-974e-a665ec1ae299"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar servicio",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253/vehicles/2a2838d9-8bf2-4371-8eae-4e6684abfcf9/serviceHistory/1d5dfa11-0814-456a-974e-a665ec1ae299",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253",
+								"vehicles",
+								"2a2838d9-8bf2-4371-8eae-4e6684abfcf9",
+								"serviceHistory",
+								"1d5dfa11-0814-456a-974e-a665ec1ae299"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autentificación",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"ElLoco208@outlook.com\",\n  \"password\": \"hola@1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Isidro Flores\",\n  \"email\": \"ElLoco208@outlook.com\",\n  \"password\": \"hola@1234\",\n  \"phoneNumber\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Obtener todos los usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener datos de un usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/2GdqL9alNSba2XxTftKRkgFnQ253",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2GdqL9alNSba2XxTftKRkgFnQ253"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar nuevo usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Carlos García\",\n  \"email\": \"carlos.garcia@example.com\",\n  \"phoneNumber\": \"5551234567\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Carlos García - MOD ISIDRO\",\n  \"email\": \"carlos.garcia@example.com\",\n  \"phoneNumber\": \"5551234567\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/3197eb07-3908-4b34-9aab-4cda943a7193",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"3197eb07-3908-4b34-9aab-4cda943a7193"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/3197eb07-3908-4b34-9aab-4cda943a7193",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"3197eb07-3908-4b34-9aab-4cda943a7193"
+							]
+						},
+						"description": "localhost:3000/users/userid"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

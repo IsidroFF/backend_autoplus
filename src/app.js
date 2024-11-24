@@ -8,6 +8,8 @@ const loginRoutes = require('./routes/login.routes.js');
 const registerRoutes = require('./routes/register.routes.js')
 
 const app = express();
+const cors = require("cors");
+app.use(cors());
 app.use(bodyParser.json());
 
 // Configurar rutas

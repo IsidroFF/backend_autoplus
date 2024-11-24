@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizar Vehículo</title>
+</head>
+<body>
+  <h1>Actualizar Vehículo</h1>
+  <form id="vehicleForm">
+    <label for="make">Marca:</label>
+    <input type="text" id="make" name="make" required><br><br>
+
+    <label for="model">Modelo:</label>
+    <input type="text" id="model" name="model" required><br><br>
+
+    <label for="year">Año:</label>
+    <input type="number" id="year" name="year" required><br><br>
+
+    <label for="vin">VIN:</label>
+    <input type="text" id="vin" name="vin" required><br><br>
+
+    <label for="licensePlate">Placa:</label>
+    <input type="text" id="licensePlate" name="licensePlate" required><br><br>
+
+    <label for="mileage">Kilometraje:</label>
+    <input type="number" id="mileage" name="mileage" required><br><br>
+
+    <label for="image">Imagen del vehículo:</label>
+    <input type="file" id="image" name="image" accept="image/*"><br><br>
+
+    <button type="submit">Actualizar Vehículo</button>
+  </form>
+
+  <p id="response"></p>
+
+  <script>
+    document.getElementById("vehicleForm").addEventListener("submit", async (event) => {
+      event.preventDefault(); // Evitar que el formulario recargue la página
+
+      // Generar el formulario de la petición
+      const form = document.getElementById("vehicleForm");
+      const formData = new FormData(form); // Crear un objeto FormData
+
+      // Cambia el userId al valor correcto
+      const userId = "2GdqL9alNSba2XxTftKRkgFnQ253"; // Este se los da en el login
+      const vehicleId = "be1f586d-12e9-4b53-be51-00c1e691e078";
+      const endpoint = `http://localhost:3000/users/${userId}/vehicles/${vehicleId}`;
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "PUT",
+          body: formData,
+        });
+
+        const result = await response.json();
+        console.log(result)
+
+        if (response.ok) {
+          document.getElementById("response").innerText = 
+            `Vehículo creado con éxito: ${JSON.stringify(result)}`;
+        } else {
+          document.getElementById("response").innerText = 
+            `Error: ${result.error}`;
+        }
+      } catch (error) {
+        document.getElementById("response").innerText = 
+          `Error de red: ${error.message}`;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -35,18 +35,23 @@ exports.getServiceHistoryByUser = async (req, res) => {
       .doc(vehicleId)
       .collection('serviceHistory');
 
+    // Obtener todos los documentos
     const snapshot = await serviceRef.get();
 
     if (snapshot.empty) {
-      return res.status(404).json({ error: 'Vehicle Services not found' });
+      return res.status(404).json({ error: 'Service History not found' });
     }
 
-    const services = [];
-    snapshot.forEach(doc => {
-      services.push({ serviceId: doc.id, ...doc.data() });
-    });
+    // Convertir los documentos a un arreglo y ordenarlos
+    const serviceHistory = snapshot.docs
+      .map(doc => ({
+        serviceId: doc.id,
+        ...doc.data(),
+      }))
+      .sort((a, b) => new Date(b.serviceDate).getTime() - new Date(a.serviceDate).getTime()); // Orden descendente
 
-    return res.json(services);
+    return res.json(serviceHistory);
+
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
